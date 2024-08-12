@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAGset</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- Custom styles -->
+  <link href="./style.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-md fixed-top nav_magset">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <span class="nav_logo">MAGset</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+          <li class="nav-item menu_item">
+            <a class="nav-link" id="btn_home" href="index.html">
+              Home
+            </a>
+          </li>
+          <li class="nav-item menu_item">
+            <a class="nav-link" id="btn_install" href="install.html">
+              Installation
+            </a>
+          </li>
+          <li class="nav-item menu_item">
+            <a class="nav-link active" href="quick_start.html">
+              Quick start
+            </a>
+          </li>
+          <li class="nav-item menu_item">
+            <a class="nav-link" href="tutorials.html">
+              Tutorials
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main id="main_content mag_reg_f">
+    <div class="container">
+      <div class="center_content p-2">
+        <div class="div_header">
+          <h4 class="mag_header">
+            <span class="material-symbols-outlined align-middle">
+              menu_book
+            </span>
+            <span class="align-middle">Quick start tutorial - Running MAGset with .fasta input</span>
+          </h4>
+          <hr class="mt-0">
+        </div>
+        <div class="div_description ps-2">
+          <span>
+            In this tutorial we will use small sample genomes to demonstrate how MAGset works. All genome files in
+            this example are in FASTA format.
+          </span>
+          <ol class="border border-dark">
+            <li><a href="install.html" target="_blank">Install MAGSet</a></li>
+            <li>Create a folder to run this test:<br>
+              <!-- <ul> -->
+              <span class="int_li">mkdir /home/$USER/magset</span>
+              <!-- </ul> -->
+            </li>
+            <li>Change your directory to the test folder:<br>
+              <span class="int_li">cd /home/$USER/magset</span>
+            </li>
+            <li>Download the test data:<br>
+              <span class="int_li">wget
+                https://raw.githubusercontent.com/LaboratorioBioinformatica/MAGset/1.5.2/wiki/test-data-quick-start.tar.gz</span>
+              <span>If it takes too long to download the file you can download it directly through
+                this <a
+                  href="https://github.com/LaboratorioBioinformatica/MAGset/raw/master/wiki/test-data-quick-start.tar.gz"
+                  target="_blank">link</a> and move it to the test folder:
+              </span><br>
+              <span class="int_li">mv /home/$USER/Downloads/test-data-quick-start.tar.gz /home/$USER/magset</span>
+            </li>
+            <li>Unpack the test data:<br>
+              <span class="int_li">tar -xvzf test-data-quick-start.tar.gz</span>
+            </li>
+            <li>Change to the unpacked directory:<br>
+              <span class="int_li">cd test/</span>
+            </li>
+            <li>
+              <span>Edit the <b>conf.properties</b> file in your preferred text editor. Update the <b>genomes_folder</b>
+                property to reflect the absolute path of the test data directory. Similarly, adjust the
+                <b>output_folder</b>
+                property to the correct absolute path. If your machine supports fewer than 8 threads (the default
+                setting), make sure to modify the <b>num_threads</b> property to match the number of threads available
+                on your
+                system.. The file should look like this, where <b>your_user</b> should be updated to your actual user:
+              </span><br>
+              <span class="int_li">
+                title=MAGset test<br>
+                genomes_folder=/home/your_user/magset/test/genomes_folder/<br>
+                output_folder=/home/your_user/magset/test/output/<br>
+                num_threads=8<br>
+                mag_file=MAG.fasta<br>
+                reference_genome_files=REF_A.fasta,REF_B.fasta<br>
+                input_type=FASTA<br>
+              </span>
+            </li>
+            <li>
+              <span>Run MAGset:</span><br>
+              <span class="int_li">run-magset.sh conf.properties</span>
+            </li>
+          </ol>
+          <p>The initial run might take a bit longer since it involves downloading the Docker container. Once the script
+            has finished executing, you will see the message <b>"MAGset: done!"</b> in the console. If you see this
+            message,
+            everything is functioning correctly!
+          </p>
+          <p>Inside the <b data-toggle="tooltip" title="/home/your_user/magset/test/output/">output_folder</b> it will be possible to see all
+            generated files, including the <b data-toggle="tooltip" title="/home/your_user/magset/test/output/result/">result</b> folder,
+            with HTML and CSV results.
+            The <b data-toggle="tooltip" title="/home/your_user/magset/test/output/result/html/index.html">index.html</b> file contains the summary of the results. You can double click and open in your
+            web browser:
+          </p>
+          <img src="quick-start-result-index.png" class="img img-fluid" alt="">
+          <span>
+            If you wish to use genomes in Genbank format, read our tutorial with
+            Genbank files.
+          </span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    $(document).ready(function () {
+      $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    });
+  </script>
+</body>
+
+</html>

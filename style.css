@@ -1,0 +1,117 @@
+/*https://www.fontspace.com/charger-font-f22559*/
+@font-face {
+  font-family: "ChargerExtrabold";
+  src: url("fonts/ChargerExtrabold-4qG9.otf") format("truetype");
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  height: 100%;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+.nav_magset {
+  background: linear-gradient(180deg, #4e92df, #4e73df);
+  height: 6dvh;
+}
+
+.nav_logo {
+  font-family: 'ChargerExtrabold';
+  font-size: 3rem;
+  color: white;
+}
+
+.nav-item a {
+  color: white;
+  font-weight: bold;
+}
+
+.nav-item a:hover,
+a:focus {
+  color: white !important;
+  border-bottom: thin solid white;
+}
+
+.nav-item>.active {
+  color: #0d256d !important;
+  border-bottom: thin solid #0d256d;
+}
+
+.mag_header {
+  color: #0d256d !important;
+  font-weight: bold;
+}
+
+.center_content {
+  margin-top: 7dvh;
+  min-height: 90dvh;
+  padding: 1.5rem;
+  border-radius: 1ch;
+  background: linear-gradient(180deg, #c8e1fe, #dbeafb);
+}
+
+.mag_reg_f {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.tutorial_list {
+  border: black;
+  border-width: thick;
+}
+
+.int_li {
+  /* list-style: none; */
+  /* margin: 0; */
+  margin-left: 1rem;
+  padding-left: 1ch;
+  margin-right: 2rem;
+  background-color: beige;
+  display: block;
+  word-wrap: break-word;
+}
+
+.int_li_no_bg {
+  margin-left: 1rem;
+  margin-right: 2rem;
+  display: block;
+  word-wrap: break-word;
+}
+
+.thick_hr {
+  background-color: #141313;
+  border: 0 none;
+  color: #141313;
+  height: 5px;
+}
+
+@media (max-width:900px) {
+  .nav-item {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width:832px) {
+  .nav_magset {
+    margin-top: 0;
+    padding-top: 0;
+    height: 4dvh;
+  }
+
+  .nav_logo {
+    font-size: 2rem;
+  }
+
+  .center_content {
+    margin-top: 10dvh;
+  }
+}

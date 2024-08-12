@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAGset</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- Custom styles -->
+  <link href="./style.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-md navbar-expand-xs fixed-top nav_magset">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="nav_logo">MAGset</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+          <li class="nav-item menu_item">
+            <a class="nav-link active" id="btn_home" href="index.html">
+              Home
+            </a>
+          </li>
+          <li class="nav-item menu_item">
+            <a class="nav-link" id="btn_install" href="install.html">
+              Installation
+            </a>
+          </li>
+          <li class="nav-item menu_item">
+            <a class="nav-link" href="quick_start.html">
+              Quick start
+            </a>
+          </li>
+          <li class="nav-item menu_item">
+            <a class="nav-link" href="tutorials.html">
+              Tutorials
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main id="main_content mag_reg_f">
+    <div class="container">
+      <div class="center_content p-2">
+        <div class="div_header">
+          <h4 class="mag_header">
+            <span class="material-symbols-outlined align-middle">
+              description
+            </span>
+            <span class="align-middle">Description</span>
+          </h4>
+          <hr class="mt-0">
+        </div>
+        <div class="div_description ps-2">
+          <p class="">
+            MAGset is a tool designed to analyze metagenome-assembled genomes (MAGs) of known species that have
+            published
+            reference genomes. Its primary goal is to identify the differences between a specific MAG (classified at the
+            species level) and one or more reference genomes by determining the <b>genomic regions of interest
+              (GRIs)</b>.
+          </p>
+        </div>
+        <div class="div_header pt-2">
+          <h4 class="mag_header">
+            <span class="material-symbols-outlined align-middle">
+              indeterminate_question_box
+            </span>
+            <span class="align-middle">What is a Genomic Region of Interest (GRI)?</span>
+          </h4>
+          <hr class="mt-0">
+        </div>
+
+        <div class="div_description ps-2">
+          <p class="">
+            Genomic Region of Interest (GRI) is a concept created in this project to define sequence regions of at least
+            5000 bases (default value) that exist in one genome but do not exist in another. GRIs are divided in two
+            types:
+          </p>
+          <ul class="">
+            <li><b>Positive GRIs</b>: Region found in MAG genome, but not found in any reference genome;</li>
+            <li><b>Negative GRIs</b>: Region not found in MAG genome, but found in one or more reference genomes;</li>
+          </ul>
+          <div style="text-align: center;">
+            <h6 class="mag_header">Example of GRIs identification process:</h6>
+            <figure class="figure">
+              <img src="gris_example.png" class="figure-img img-fluid rounded"
+                alt="Example of GRIs identification process">
+              <figcaption class="figure-caption">
+                <span style="font-size: 0.8rem;">
+                  Example of comparing a MAG with two references. The value within each rectangle represents the size of
+                  the
+                  region. Green regions are similar regions in all genomes, so they are not GRIs. The yellow regions are
+                  negative GRIs (NGRI0001, NGRI0002) and the blue regions are positive GRIs (PRGI0004 and PRGI0005).
+                  NRGI0002
+                  was found in two reference genomes, so both regions contain the same identifier code. Gray regions are
+                  exclusive, but have been discarded as they did not meet the minimum size requirement.
+                </span>
+              </figcaption>
+            </figure>
+          </div>
+          <p class="">
+            You can use the module MAGcheck to search for negative GRIs in your raw data (the data used to assembly the
+            MAG). If any negative GRIs were found, it may suggest that your assembly process lost parts of the genome,
+            and
+            if you want a more complete MAG, it may be a good idea reassemble it.
+          </p>
+        </div>
+        <div class="div_header pt-2">
+          <h4 class="mag_header">
+            <span class="material-symbols-outlined align-middle">
+              account_tree
+            </span>
+            <span class="align-middle">MAGset Pipeline</span>
+          </h4>
+          <hr class="mt-0">
+        </div>
+        <div class="div_description ps-2">
+          <div class="" style="text-align: center;">
+            <figure class="figure">
+              <img src="pipeline2.png" class="figure-img img-fluid rounded"
+                alt="Example of GRIs identification process">
+              <figcaption class="figure-caption">
+                <span class="">
+                  MAGset supports two file types as input: Fasta files and GenBank files (.gbff/.gbk). However, all
+                  genome
+                  files must be of the same type per execution. In the image, 'Use Case 1' represents an execution
+                  example
+                  with MAG genome and reference genome as Fasta files. 'Use Case 2' represents an execution example with
+                  MAG and reference genome as Genbank files. The blue boxes are always executed, regardless of the input
+                  types.
+                  The yellow boxes are only executed when Genbank files are provided. The green box will only be
+                  executed
+                  when the raw reads are provided, which will run the MAGcheck module.
+                </span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <!-- Footer -->
+  <!-- <footer class="footer mt-auto py-3">
+    <div class="container">
+      <span class="text-muted">© 2024 MAGset. All rights reserved.</span>
+    </div>
+  </footer> -->
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    $(document).ready(function () {
+      $("#btn_install").on('click', function (e) {
+
+      });
+    });
+  </script>
+</body>
+
+</html>
